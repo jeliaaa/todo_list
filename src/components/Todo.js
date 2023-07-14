@@ -38,6 +38,7 @@ export const Todo = ({ task, deleteTodo, editTodo, toggleComplete }) => {
           onClick={() => {
             navigator.clipboard.writeText(task.task);
             alert(`${task.task} Copied To Clipboard! `);
+            console.log(Date())
           }}
         ></i>
       </div>

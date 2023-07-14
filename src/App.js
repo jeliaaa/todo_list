@@ -1,9 +1,14 @@
 import { styled } from "styled-components";
 import "./App.css";
 import { TodoWrapper } from "./components/TodoWrapper";
+import DateBlock from "./components/DateBlock";
 
 function App() {
-  return <TodoWrapper />;
+  return (
+    <>
+      <DateBlock /> <TodoWrapper />
+    </>
+  );
 }
 
 export default App;
