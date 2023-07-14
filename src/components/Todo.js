@@ -33,6 +33,13 @@ export const Todo = ({ task, deleteTodo, editTodo, toggleComplete }) => {
           class="fa fa-trash"
           aria-hidden="true"
         ></i>
+        <i
+          class="fa-regular fa-clipboard"
+          onClick={() => {
+            navigator.clipboard.writeText(task.task);
+            alert(`${task.task} Copied To Clipboard! `);
+          }}
+        ></i>
       </div>
     </TodoDiv>
   );
