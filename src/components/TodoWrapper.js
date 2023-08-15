@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 import { v4 as uuidv4 } from "uuid";
 import { TodoForm } from "./TodoForm";
 import { EditTodoForm } from "./EditTodo";
-import { Todo } from "./Todo";
+import  Todo  from "./Todo";
 
 const TodoWrapperDiv = styled.div`
   background: #1a1a40;
@@ -25,7 +25,6 @@ export const TodoWrapper = () => {
       ...todos,
       { id: uuidv4(), task: todo, completed: false, isEditing: false },
     ]);
-    console.log({ todos });
   };
   const deleteTodo = (id) => setTodos(todos.filter((todo) => todo.id !== id));
   const toggleComplete = (id) => {
@@ -49,14 +48,13 @@ export const TodoWrapper = () => {
       )
     );
   };
-
   return (
     <TodoWrapperDiv>
       <Heading>Do things!</Heading>
       <TodoForm addTodo={addTodo} />
         {todos.map((todo) => 
           todo.isEditing ? (
-            <EditTodoForm editTodo={editTask} task={todo} />
+            <EditTodoForm key={todo.id} editTodo={editTask} task={todo} />
           ) : (
             <Todo
               key={todo.id}

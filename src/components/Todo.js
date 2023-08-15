@@ -13,7 +13,7 @@ const TodoDiv = styled.div`
   margin-bottom: 1rem;
   cursor: pointer;
 `;
-export const Todo = ({ task, deleteTodo, editTodo, toggleComplete }) => {
+const Todo = ({ task, deleteTodo, editTodo, toggleComplete }) => {
   return (
     <TodoDiv>
       <p
@@ -24,17 +24,17 @@ export const Todo = ({ task, deleteTodo, editTodo, toggleComplete }) => {
       </p>
       <div>
         <i
-          class="fa fa-pencil-square"
+          className="fa fa-pencil-square"
           aria-hidden="true"
           onClick={() => editTodo(task.id)}
         ></i>
         <i
           onClick={() => deleteTodo(task.id)}
-          class="fa fa-trash"
+          className="fa fa-trash"
           aria-hidden="true"
         ></i>
         <i
-          class="fa-regular fa-clipboard"
+          className="fa-regular fa-clipboard"
           onClick={() => {
             navigator.clipboard.writeText(task.task);
             alert(`${task.task} Copied To Clipboard! `);
@@ -45,3 +45,5 @@ export const Todo = ({ task, deleteTodo, editTodo, toggleComplete }) => {
     </TodoDiv>
   );
 };
+
+export default React.memo(Todo);
